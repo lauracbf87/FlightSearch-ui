@@ -1,0 +1,28 @@
+<table class="table table-stripped table-hover">
+	<thead>
+		<tr>                        
+			<TH>Flight info</TH>
+			<TH>Dep loc</TH>
+			<TH>Arr loc</TH>
+			<TH>Valid till</TH>
+			<TH>Flight time</TH>
+			<TH>Flight dur</TH>
+			<TH>Fare</TH>
+			<TH>Seat availability</TH>
+			<TH>Class</TH>
+		</tr>
+	</thead>
+	<tbody id="resultsGrid">
+		<tr *ngFor="let item of resultsData">
+			<td>{{item.flightNo}}</td>
+			<td>{{item.depLoc}}</td>
+			<td>{{item.arrLoc}}</td>
+			<td>{{item.validTill}}</td>
+			<td>{{item.flightTime}}</td>
+			<td>{{item.flightDur}}</td>
+			<td>{{item.fare}}</td>
+			<td>{{item.seatAvailability}}</td>
+			<td>{{item.clasz}}</td>
+		</tr>
+	</tbody>
+</table>

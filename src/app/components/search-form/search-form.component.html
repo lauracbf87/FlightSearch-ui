@@ -1,0 +1,25 @@
+ <div class="row card">
+ 	<div class="form-group col-12">
+ 		<label>Departure Location</label>
+		<input type="text" class="form-control" [value]="departureLocation" (change)="onValueChanged($event, 'depLoc')">
+ 	</div>
+ 	<div class="form-group col-12">
+ 		<label>Arrival Location</label>
+		<input type="text" class="form-control" [value]="arrivalLocation"  (change)="onValueChanged($event, 'arrLoc')">
+
+ 	</div>
+ 	<div class="form-group col-12">
+ 		<label>Flight Date</label>
+ 		<input type="text" class="form-control datepicker" [value]="flightDate"  (change)="onValueChanged($event, 'flightDt')">
+ 	</div>
+ 	<div class="form-group col-12">
+ 		<label>Flight Class</label>
+		<input type="text" class="form-control" [value]="flightClass"  (change)="onValueChanged($event, 'flightCls')">
+
+ 	</div>
+ 	<div class="form-group col-12">
+ 		<label>Output Preference</label>
+		<input type="text" class="form-control" [value]="outputPreference"  (change)="onValueChanged($event, 'outputPref')">
+
+ 	</div>
+ </div>
