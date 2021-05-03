@@ -5,25 +5,30 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-6">
+    <div class="col-12">
       <app-search-form
-          [departureLocation]="departureLocation"
-          [arrivalLocation]="arrivalLocation"
-          [flightDate]="flightDate"
-          [flightClass]="flightClass"
-          [outputPreference]="outputPreference">      
+          [departureLocation]="departureLocation" (onDepartureLocationChange)="doDepartureLocationChange($event)"
+          [arrivalLocation]="arrivalLocation" (onArrivalLocationChange)="doArrivalLocationChange($event)"
+          [flightTime]="flightTime" (onFlightTimeChange)="doFlightTimeChange($event)"
+          [flightDate]="flightDate" (onFlightDateChange)="doFlightDateChange($event)"
+          [flightClass]="flightClass" (onflightClassChange)="doFlightClassChange($event)"
+          [outputPreference]="outputPreference" (onOutputPreferenceChange)="doOutputPreferenceChange($event)">      
       </app-search-form>
     </div>
-    <div class="col-6">
+  </div>
+  <div class="row">
+    <div class="col-12">
       <app-search-commands 
           [departureLocation]="departureLocation"
           [arrivalLocation]="arrivalLocation"
+          [flightTime]="flightTime"
           [flightDate]="flightDate"
           [flightClass]="flightClass"
           [outputPreference]="outputPreference"
           (dataFound)="onDataFound($event)">      
       </app-search-commands>
     </div>
+    <div class="col-12"><br></div>
   </div>
   <div class="row">
     <div class="col-12">

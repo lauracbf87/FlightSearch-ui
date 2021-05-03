@@ -1,25 +1,33 @@
- <div class="row card">
- 	<div class="form-group col-12">
+ <div class="row">
+ 	<div class="form-group col-6">
  		<label>Departure Location</label>
-		<input type="text" class="form-control" [value]="departureLocation" (change)="onValueChanged($event, 'depLoc')">
+ 		<input type="text" class="form-control" [value]="departureLocation" (change)="doDepLocValueChanged($event)">
  	</div>
- 	<div class="form-group col-12">
+ 	<div class="form-group col-6">
  		<label>Arrival Location</label>
-		<input type="text" class="form-control" [value]="arrivalLocation"  (change)="onValueChanged($event, 'arrLoc')">
+ 		<input type="text" class="form-control" [value]="arrivalLocation"  (change)="doArrLocValueChanged($event)">
 
  	</div>
- 	<div class="form-group col-12">
- 		<label>Flight Date</label>
- 		<input type="text" class="form-control datepicker" [value]="flightDate"  (change)="onValueChanged($event, 'flightDt')">
+
+ 	<div class="form-group col-6">
+ 		<label>Flight Time</label>
+ 		<input type="text" class="form-control" [value]="flightTime" (change)="doFlightTimeValueChanged($event)">
  	</div>
- 	<div class="form-group col-12">
+ 	
+ 	<div class="form-group col-6">
+ 		<label>Flight Date</label><br />
+ 		<input matInput [matDatepicker]="picker" [value]="flightDate" class="my-date-picker"  (change)="doFlightDtValueChanged($event)">
+ 		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+ 		<mat-datepicker #picker></mat-datepicker>
+ 	</div>
+ 	<div class="form-group col-6">
  		<label>Flight Class</label>
-		<input type="text" class="form-control" [value]="flightClass"  (change)="onValueChanged($event, 'flightCls')">
+ 		<input type="text" class="form-control" [value]="flightClass"  (change)="doFlightClsValueChanged($event)">
 
  	</div>
- 	<div class="form-group col-12">
+ 	<div class="form-group col-6">
  		<label>Output Preference</label>
-		<input type="text" class="form-control" [value]="outputPreference"  (change)="onValueChanged($event, 'outputPref')">
+ 		<input type="text" class="form-control" [value]="outputPreference"  (change)="doOutputPrefValueChanged($event)">
 
  	</div>
  </div>

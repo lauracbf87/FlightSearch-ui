@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FlightSearchServiceService } from '../../services/flight-search-service.service';
 import { FlightInfo } from '../../services/flight-info';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
 	selector: 'app-search-commands',
