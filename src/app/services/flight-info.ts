@@ -1,13 +1,13 @@
 export class FlightInfo {
-    flightNo: String;
-    depLoc: String;
-    arrLoc: String;
-    validTill: String;
-    flightTime: String;
-    flightDur: String;
-    fare: String;
-    seatAvailability: String;
-    clasz: String;
+    flightNo: string;
+    depLoc: string;
+    arrLoc: string;
+    validTill: string;
+    flightTime: string;
+    flightDur: string;
+    fare: string;
+    seatAvailability: string;
+    clasz: string;
 
     constructor() {
     	this.flightNo =	 "";

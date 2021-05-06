@@ -8,7 +8,7 @@ import { FlightInfo } from './flight-info';
 	providedIn: 'root'
 })
 export class FlightSearchServiceService {
-	private API_URL = "http://localhost:8000/flightSearch";
+	private API_URL = "http://localhost:8000/";
 
 	httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -17,7 +17,17 @@ export class FlightSearchServiceService {
 	searchBy(query: any): Observable<FlightInfo[]> {
 		console.log({"searchBy": query});
 
-		return this.http.post(this.API_URL, query, {headers: this.httpHeaders})
+		return this.http.post(this.API_URL + "flightSearch", query, {headers: this.httpHeaders})
+			.pipe(
+				map((res: any) => res || {}),
+				catchError(this.errorHandler)
+			);
+	}
+
+	findByText(text: string): Observable<FlightInfo[]> {
+		console.log({"findByText": text});
+
+		return this.http.post(this.API_URL + "findByText", {"textToFind":text}, {headers: this.httpHeaders})
 			.pipe(
 				map((res: any) => res || {}),
 				catchError(this.errorHandler)

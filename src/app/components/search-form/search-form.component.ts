@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlightSearchServiceService } from '../../services/flight-search-service.service';
   
 
 @Component({
@@ -20,9 +21,10 @@ export class SearchFormComponent implements OnInit {
 	@Output() onFlightDateChange = new EventEmitter<string>(); 
 	@Output() onFlightClassChange = new EventEmitter<string>(); 
 	@Output() onOutputPreferenceChange = new EventEmitter<string>(); 
+	suggestions: string[] = [];
 
 
-	constructor() {
+	constructor(private searchService: FlightSearchServiceService) {
 		this.departureLocation = "";
 		this.arrivalLocation = "";
 		this.flightTime = "";
@@ -73,5 +75,19 @@ export class SearchFormComponent implements OnInit {
 		this.onOutputPreferenceChange.emit(value);
 	}
 
+	doOnInputText(event: any): void {
+		console.log(event);
+		let text = event.target.value;
+		this.searchService.findByText(text)
+			.subscribe((resp) => {
+				console.log(resp);
+				let selections: any = {};
+				resp.map((item) => { 
+					selections[item.depLoc] = item.depLoc;
+					return null;
+				});
+				this.suggestions = Object.keys(selections);
+			});
+	}
 
 }
