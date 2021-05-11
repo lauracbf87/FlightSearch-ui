@@ -4,10 +4,14 @@
  		<input type="text" class="form-control" [value]="departureLocation" 
  			(input)="doOnInputText($event)"
  			(change)="doDepLocValueChanged($event)">
- 		<div class="mat-elevation-z5" style="position: absolute; top: 66px; left: 15px; background-color: white; border: 1px solid darkgrey; min-height: 40px; width: 96%; z-index: 1000;">
- 			<ul>
- 				<li *ngIf="suggestions.length == 0">There are no options available.</li>
- 				<li *ngFor="let item of suggestions">{{ item }}</li>
+ 		<div class="mat-elevation-z5" style="my-autocomplete">
+ 			<ul class="autocomplete">
+ 				<li *ngIf="suggestions.length == 0" >There are no options available.</li>
+ 				<li *ngFor="let item of suggestions">
+
+ 					<button (click)="selectItem(item)" class="my-btn">{{ item }}</button>
+
+ 				</li>
  			</ul>
  		</div>
  	</div>

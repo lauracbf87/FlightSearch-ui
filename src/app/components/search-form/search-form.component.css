@@ -4,3 +4,32 @@
 	border: 1px solid #ced4da;
     border-radius: 0.25rem; 
 }
+
+.my-autocomplete {
+	position: absolute; 
+	top: 66px; 
+	left: 15px; 
+	background-color: white; 
+	border: 1px solid darkgrey; 
+	min-height: 40px; width: 96%; 
+	z-index: 1000;
+}
+
+.autocomplete li {
+	list-style-type: none;
+	margin-left: -40px;
+	padding-left: 20px;
+	padding-right: 0px;
+}
+.autocomplete li:hover {
+	background-color: lightgreen;
+}
+
+.my-btn {
+	border: none;
+	width: 100%;
+	text-align: left;
+}
+.my-btn:hover {
+	background-color: lightgreen;
+}

@@ -90,4 +90,9 @@ export class SearchFormComponent implements OnInit {
 			});
 	}
 
+	selectItem(value: any): void {
+		console.log(value);
+		this.departureLocation = value;
+	}
+
 }
