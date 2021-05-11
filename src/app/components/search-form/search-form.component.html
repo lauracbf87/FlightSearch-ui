@@ -4,7 +4,7 @@
  		<input type="text" class="form-control" [value]="departureLocation" 
  			(input)="doOnInputText($event)"
  			(change)="doDepLocValueChanged($event)">
- 		<div class="mat-elevation-z5" style="my-autocomplete">
+ 		<div class="mat-elevation-z5" style="my-autocomplete2">
  			<ul class="autocomplete">
  				<li *ngIf="suggestions.length == 0" >There are no options available.</li>
  				<li *ngFor="let item of suggestions">
@@ -17,8 +17,19 @@
  	</div>
  	<div class="form-group col-6">
  		<label>Arrival Location</label>
- 		<input type="text" class="form-control" [value]="arrivalLocation"  (change)="doArrLocValueChanged($event)">
+ 		<input type="text" class="form-control" [value]="arrivalLocation" 
+ 		(input)="doOnInputText2($event)"
+ 		 (change)="doArrLocValueChanged($event)">
+<div class="mat-elevation-z5" style="my-autocomplete">
+ 			<ul class="autocomplete">
+ 				<li *ngIf="suggestions2.length == 0" >There are no options available.</li>
+ 				<li *ngFor="let item of suggestions2">
 
+ 					<button (click)="selectItem2(item)" class="my-btn">{{ item }}</button>
+
+ 				</li>
+ 			</ul>
+ 		</div>
  	</div>
 
  	<div class="form-group col-6">

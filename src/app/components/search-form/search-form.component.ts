@@ -22,6 +22,7 @@ export class SearchFormComponent implements OnInit {
 	@Output() onFlightClassChange = new EventEmitter<string>(); 
 	@Output() onOutputPreferenceChange = new EventEmitter<string>(); 
 	suggestions: string[] = [];
+	suggestions2: string[] = [];
 
 
 	constructor(private searchService: FlightSearchServiceService) {
@@ -90,9 +91,28 @@ export class SearchFormComponent implements OnInit {
 			});
 	}
 
+	doOnInputText2(event: any): void {
+		console.log(event);
+		let text = event.target.value;
+		this.searchService.findByText(text)
+			.subscribe((resp) => {
+				console.log(resp);
+				let selections: any = {};
+				resp.map((item) => { 
+					selections[item.arrLoc] = item.arrLoc;
+					return null;
+				});
+				this.suggestions2 = Object.keys(selections);
+			});
+	}
+
 	selectItem(value: any): void {
 		console.log(value);
 		this.departureLocation = value;
+	}
+	selectItem2(value: any): void {
+		console.log(value);
+		this.arrivalLocation = value;
 	}
 
 }
